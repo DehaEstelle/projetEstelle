@@ -1,0 +1,348 @@
+
+html {
+    font-size: 62.5%;
+}
+
+/**** root */
+:root {
+    --firstFontFamily: 'Montserrat', sans-serif;
+    --secondFontFamily: Verdana, Geneva, Tahoma, sans-serif;
+
+    --firstTitle: 2.5rem;
+    --secondTitle: 1.8rem;
+    --label: 2rem;
+
+    --firstColor: #ffffff;
+    --secondColor: #6dd5fa;
+    --tertioColor: #2980b9;
+    --hoverColor: #00bbff;
+    --activeColor: #0171bb;
+}
+
+/**** RESET ****/
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    font-family: var(--firstFontFamily);
+    background-image: url(/images/bg-light.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input {
+    font-family: var(--secondFontFamily);
+    font-size: 14px;
+}
+
+div.LoginForm {
+    width: 100%;
+    height: 100vh;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.LoginForm-Wrapper {
+    background: linear-gradient(to right, var(--firstColor), var(--secondColor), var(--tertioColor));
+    width: 50%;
+    height: 50rem;
+    display: inline-flex;
+    border-radius: 1rem;
+    box-shadow: 0 0 2rem gray;
+}
+
+div.LoginForm-RightSide {
+    width: 70%;
+    height: 30rem;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+div.LoginForm-Header {
+    display: inline-flex;
+    justify-content: center;
+    margin: auto;
+}
+
+div.LoginForm-IconWrap {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.LoginForm-Content {
+    display: inline-flex;
+    justify-content: center;
+    margin: auto;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 30rem;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1.5rem;
+    border-radius: 1em;
+    outline: none;
+    border: 1px solid var(--tertioColor);
+    margin-block: 3rem;
+}
+
+div.FormLogin-Submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.25rem;
+}
+
+button.Btn-Submit {
+    font-family: var(--firstFontFamily);
+    background-color: var(--secondColor);
+    font-size: 2rem;
+    font-weight: bold;
+    align-self: center;
+    padding: 1rem;
+    width: 50%;
+    cursor: pointer;
+    border-radius: 1em;
+    border: 1px solid var(--tertioColor);
+    outline: none;
+    box-shadow: inset 0 0 0 0 var(--firstColor);
+    transition: ease-out 0.3s;
+}
+
+button.Btn-Submit:hover {
+    box-shadow: inset 7.5rem 0 0 0 var(--hoverColor);
+    color: white;
+}
+
+button.Btn-Submit:active {
+    box-shadow: inset 7.5rem 0 0 0 var(--activeColor);
+}
+
+div.LoginForm-LiftSide {
+    width: 100%;
+}
+
+.LoginForm-Cover img {
+    width: 100%;
+}
+
+/*
+*le header et la navbar
+*/
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+.nav-container{
+    background-color: var(--tertioColor);
+    color:whitesmoke;
+}
+
+.nav-bar{   
+    width: 95%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.nav-burger{
+    display: none;
+}
+
+.nav-logo {
+    width: 35rem;
+    font-size: 13px; 
+}
+
+.nav-logo a{
+    cursor: pointer;
+    color:whitesmoke; 
+}
+
+.nav-links{
+    width: 100%;
+}
+
+.nav-links ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-links ul li{
+    margin: 0 3%;
+    padding: 2rem;
+}
+
+.nav-links ul li a{
+    font-size: 2rem;
+    padding: 2rem;
+    color:whitesmoke;
+}
+
+.nav-links ul li a:hover{
+    background: var(--firstColor);
+    color: var(--hoverColor);
+}
+
+.nav-status{
+    width: 15%;
+    text-align: right;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    cursor: pointer;   
+}
+/* CSS FOR CALANDAR */
+
+.calendar{
+    position: relative;
+}
+.calendartable{
+    width: 100%;
+    height: calc(100vh - 250px);
+
+}
+.calendartable td{
+    padding: 10px;
+    border: 1px solid #ccc;
+    vertical-align: top;
+    width: 14.29%;
+    height: 20%;
+
+    
+}
+
+
+.calendartable--6weeks td {
+    width: 16.66%;
+}
+
+.calencarweekdays{
+    font-weight: bold;
+    color: #000;
+    font-size: 1.2rem;
+}
+
+.calencardays{
+    font-size: 1.3rem;
+}
+
+.calendarOverMonth .calencardays{
+    opacity: 0.3;
+}
+
+.calendarbtn{
+    display: block;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 30px;
+    background-color: #007bff;
+    border-radius: 50%;
+
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    text-decoration: none;
+    transition: transform 0.3s;
+
+}
+
+.calendarbtn:hover{
+    transform: scale(1.2);
+}
+
+/*
+*Page service, salle 
+*/
+
+
+form {
+    text-align: center;
+}
+
+h2 {
+    margin-block: 2rem;
+    text-align: center;
+}
+
+form >input {
+    width: 35%;
+    height: 3rem;
+    font-size: 1.8rem;
+    padding-left: 1rem;
+    margin-right: 1.5rem;
+    box-shadow: 1px 1px 2px grey;
+    border: none;
+    outline-color: var(--hoverColor);
+}
+
+form>label {
+    font-size: var(--label);
+    font-weight: bold;
+}
+
+form>button {
+    font-size: 1.9rem;
+    font-weight: bold;
+    color: var(--firstColor);
+    background: var(--hoverColor);
+    padding: 2px 10px ;
+    border:none;
+    cursor: pointer;
+    transition: all 0.8s;
+
+}
+form>button:hover{
+    background-color: var(--firstColor);
+    color: var(--hoverColor);
+}
+
+table.table {
+    width: 70vw;
+    margin: 4rem auto;
+    text-align: center;
+    font-size: var(--secondTitle);
+}
+
+.table th, .table td{
+    padding: .5rem 2rem;
+    margin: 3rem;
+    background-color: #0171bb;
+}
+
+/* 
+* Page users
+*/
+div.content {
+    border: 1px solid black;
+    margin: 0 auto;
+    width: 50%;
+    box-shadow: 1px 1px 2px grey;
+
+}
+
+.content div>input {
+    height: 3rem;
+    font-size: 1.8rem;
+    font-size: 1.8rem;
+    outline-color: var(--hoverColor);
+}
