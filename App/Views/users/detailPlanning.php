@@ -1,6 +1,6 @@
 <?php
-  require('../App/Models/Planning.php'); 
-  require('../App/Views/inc/header.php');
+  require_once('../App/Models/Planning.php'); 
+  require_once('../App/Views/inc/header.php');
  
     $events= new Planning();
     
@@ -17,8 +17,11 @@
 
 <ul>
     <li>Date: <?= (new DateTime($event['start']?? ' ' ))->format('d/m/Y') ?? ''; ?></li>
+    
     <li>HEURE DE DEMARRAGE: <?= (new DateTime($event['start']?? ' '))->format('H:i')?? ''; ?></li>
+    
     <li>HEURE DE FIN: <?= (new DateTime($event['end']?? ''))->format('H:i')?? ''; ?></li>
+    
     <li>DETAIL:
          <br>
          <?= htmlentities($event['description']??''); ?>

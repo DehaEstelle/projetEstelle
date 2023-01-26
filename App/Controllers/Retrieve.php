@@ -1,6 +1,9 @@
 <?php
+
 require_once("../App/Controllers/SalleController.php");
 require_once("../App/Controllers/ServiceController.php");
+require_once("../App/Controllers/RegisterController.php");
+require_once("../App/Controllers/validators/EventValidator.php");
 
 class Retrieve {
     public function home() {
@@ -40,6 +43,10 @@ class Retrieve {
         $stmt = $controleur->selectSalleUser();
         $service = $controleur->selectServiceUser();
         require("../App/Views/users/addEvent.php");
+    }
+
+    public function detailPlanning() {
+        require("../App/Views/users/detailPlanning.php");
     }
 
 } 

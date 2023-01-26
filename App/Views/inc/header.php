@@ -7,7 +7,6 @@
 
     <title>App Planning</title>
 
-    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 
 </head>
@@ -54,5 +53,5 @@
 
    <div class="container-fluid">
             <nav class="navbar navbar-dark bg-primary mt-3">
-                <a href="#" class="navbar-brand ml-3 text-lg" >Mon Calendrier</a>
+                <!-- <a href="#" class="navbar-brand ml-3 text-lg" >Mon Calendrier</a> -->
             </nav> 

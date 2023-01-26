@@ -84,8 +84,8 @@ div.LoginForm-Content {
     margin: auto;
 }
 
-input[type="email"],
-input[type="password"] {
+.FormLogin-FormGroup input[type="email"],
+.FormLogin-FormGroup input[type="password"] {
     width: 30rem;
     font-size: 2rem;
     cursor: pointer;
@@ -327,22 +327,56 @@ table.table {
     padding: .5rem 2rem;
     margin: 3rem;
     background-color: #0171bb;
+    color: var(--firstColor);
 }
+
+.table .colSvg {
+    width: 5%;
+}
+
 
 /* 
 * Page users
 */
-div.content {
-    border: 1px solid black;
+div .content form {
     margin: 0 auto;
-    width: 50%;
-    box-shadow: 1px 1px 2px grey;
-
+    max-width: 65%;
 }
 
-.content div>input {
+form .addUsers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.addUsers .left, .addUsers .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+    flex-basis: 45%;
+}
+
+.addUsers input, .addUsers select {
     height: 3rem;
-    font-size: 1.8rem;
-    font-size: 1.8rem;
-    outline-color: var(--hoverColor);
+    width: 97%;
+}
+
+.addUsers select {
+    margin-top: 1.5rem;
+}
+
+.addUsers div:last-child {
+    margin: 2.5rem auto;
+    width: 60%;
+    text-align: left;
+}
+
+.addUsers label, .addUsers>label{
+    font-size: var(--secondTitle);
+    text-align: left;
+}
+
+.content button {
+    margin-top: 1rem;
 }

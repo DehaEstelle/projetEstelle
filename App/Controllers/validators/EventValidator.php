@@ -1,5 +1,5 @@
 <?php
-    require('../App/validators/Validator.php');
+    require('../App/Controllers/validators/Validator.php');
 class EventValidator extends Validator{
 
     public function validates(array $data){

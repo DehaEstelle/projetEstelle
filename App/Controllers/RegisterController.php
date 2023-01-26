@@ -54,7 +54,6 @@ class RegisterController {
     public function insertUsers() {
         if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["ajouter"]))
         {
-
             
             $this->user_firstname = $this->empty($_POST["firstname"]);
             $this->user_lastname = $this->empty($_POST["lastname"]);
@@ -73,11 +72,10 @@ class RegisterController {
             $count = count($exist_adminService);
 
             
-            // die($_POST['id2']);
+            if(!$_POST['id2']) {
+            // var_dump($_POST["id2"]);
             // exit();
 
-            if(!$_POST['id2']) {
-               // die($this->user_password);
                 if($lenght>0) {
                     header("Location:/retrieve/addUsers?user_exist");
                     exit();
@@ -93,20 +91,15 @@ class RegisterController {
                 if(empty($this->checkMail( $this->user_email, $this->$user_id))) {
                     $this->model->updateUsers($this->user_firstname, $this->user_lastname, $this->user_email, $this->user_role, $this->service_id, $this->$user_id);
                     header("Location:/retrieve/addUsers");
-                   
                     exit();
     
-                } else if($this->password ===$this->confirm_pwd && $count===0){
+                } else {
                     header("Location:/retrieve/addUsers?user_exist");
                     exit();
                 } 
                 
             } 
-            }
-
-            
-            header("Location:/retrieve/addUsers?passwordIncorrect");
-            exit();
+        }
                 
         } 
 
@@ -133,7 +126,7 @@ class RegisterController {
             $this->user_id = $_POST["user_id"];
             $this->model = new Register();
             $this->model->deleteUsers($this->user_id);
-            header("Location:/retrieve/showUsers");
+            header("Location:/retrieve/addUsers");
             exit();
         }
     }

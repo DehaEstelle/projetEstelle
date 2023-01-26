@@ -58,4 +58,10 @@ class PlanningController {
         }
     }
 
+    public function showPlanning() {
+        $this->model = new Planning();
+        $array = $this->model->showPlanning();
+        return $array;
+    }
+
 }

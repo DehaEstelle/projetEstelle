@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let previous5 = previous4.previousElementSibling;
 
             id.value = previous5.textContent;
+
             firstname.value = previous4.textContent;
             lastname.value = previous3.textContent;
             email.value = previous2.textContent;

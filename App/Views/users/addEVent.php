@@ -1,21 +1,6 @@
 <?php
-
-require_once('../App/Views/inc/header.php');
-require_once("../App/Controllers/RegisterController.php");
-require_once('../App/validators/EventValidator.php');
-
-    $validator= new EventValidator();
-   
-    $errors=[];
-    $data=[];
-   
-
-    if ($_SERVER['REQUEST_METHOD']==='POST') {
-        $data=$_POST;
-        $errors= $validator->validates($_POST);
+require_once "../App/Views/inc/header.php";
     
-        
-    }
 ?>
     
 
@@ -36,7 +21,7 @@ require_once('../App/validators/EventValidator.php');
                         <small style="color:red;"><?= $errors['name'];   ?></small>
                     <?php endif ;   ?>
                 </div>
-                <div class="form-group">
+                <div class="form-group"> 
                     <label for="date">Date</label>
                     <input class="form-control" type="date" required name="date" id="date" value="<?= isset($data['date'])? htmlentities($data['date']):'' ?>">
                     <?php if (isset($errors['date'])):   ?>
@@ -65,8 +50,7 @@ require_once('../App/validators/EventValidator.php');
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea name="description" id="description" class="form-control">
-                <?= isset($data['name'])? htmlentities($data['name']):'' ?></textarea>
+            <textarea name="description" id="description" class="form-control"><?= isset($data['name'])? htmlentities($data['name']):'' ?></textarea>
         </div>
         <div>
             <label for="service">Service</label>

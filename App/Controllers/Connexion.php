@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Classe de connection à la base de données
  * PHP version 8.0

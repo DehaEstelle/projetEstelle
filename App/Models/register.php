@@ -29,6 +29,7 @@ require_once("../App/Controllers/Connexion.php");
             $this->service_id = $service_id;
             
             $db = $this->connect();
+
         /**
         * $sql, pour les requêtes vers la base de données
         */
@@ -43,6 +44,7 @@ require_once("../App/Controllers/Connexion.php");
             ":user_role" => $this->user_role,
             ":service_id" => $this->service_id,
         ]);
+
     }
 
     public function selectService() {

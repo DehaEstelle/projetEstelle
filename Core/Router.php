@@ -1,5 +1,3 @@
-
-
 <?php
 
 class Router {
@@ -65,7 +63,7 @@ class Router {
             require "$file";
         } 
         else {
-            // header("Location: /retrieve/home");
+            //header("Location: /retrieve/home");
             echo "Page 404";
             exit();
         }

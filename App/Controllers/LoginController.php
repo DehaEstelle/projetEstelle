@@ -6,8 +6,8 @@ class LoginController {
     public $model;
 
     //variables du formulaire
-    public $email;
-    public $password;
+    public $user_email;
+    public $user_password;
 
     public function sanitize($verif)
     {
@@ -43,15 +43,18 @@ class LoginController {
         //On vérifie si la méthode utilisée pour le formulaire est "POST" et que le nom du bouton de soumission est "valider"
         if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["valider"]))
         {
-            $this->email = $this->empty($_POST["user_email"]);
-            $this->password = $this->empty($_POST["password"]);
+            $this->user_email = $this->empty($_POST["user_email"]);
+            $this->user_password = $this->empty($_POST["password"]);
 
             $this->model = new User();
-            $arr = $this->model->findUserByEmail($this->email);
-            // var_dump($arr);
+            $arr = $this->model->findUserByEmail($this->user_email);
+
+            // print_r($arr);
+            // exit();
+        
             $lenght = count($arr);
             if($lenght>0) {
-                if($this->password === $arr[0]["user_password"]) {
+                if(password_verify($this-> user_password, $arr[0]["user_password"])) {
                     session_start();
                     $_SESSION["firstname"] = $arr[0]["user_firstname"];
                     $_SESSION["lastname"] = $arr[0]["user_lastname"];
@@ -59,26 +62,29 @@ class LoginController {
                    // $_SESSION["password"] = $arr[0]["user_password"];
                     $_SESSION["role"] = $arr[0]["user_role"];
                     $_SESSION["service"] = $arr[0]["service_id"];
+
                     if($arr[0]["user_role"] == 0)
                     {
                         $service_id = $arr[0]["service_id"];
                         header("Location:/retrieve/$service_id/index");
                         exit();
-                    } else {
+
+                    } else if($arr[0]["user_role"] !== 0){
+
                         $service_id = $arr[0]["service_id"];
-                        header("Location:/retrieve/$service_id/index");
+                        header("Location:/retrieve/$service_id/index1");
                         exit();
                     }
-                   
-                    
-                    header("Location:/retrieve/index");
-                    exit();
-                } else {
 
+                } else {
                     //Gerer le message de notification d'erreur
-                    header("Location:/retrieve/home?error");
+                    header("Location:/retrieve/home?password_incorrect");
                     exit();
                 }
+                
+            } else {
+                header("Location:/retrieve/home?not_exist");
+                exit;
             } 
         }
     }
