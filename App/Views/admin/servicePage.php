@@ -3,7 +3,7 @@
 ?>
 <body>
     <h2>Liste des services</h2>
-    <form action="/ServiceController/insertService" method="POST" class="form">
+    <form action="/ServiceController/insertService" method="POST">
             <label for="service">Service</label>
             <input type="hidden" id="id" name="id">
             <input type="text" id="service" name="service">

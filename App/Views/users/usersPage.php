@@ -26,8 +26,8 @@
 
     <div class="calendar">
         <div class="d-flex flex-row align-items-center justify-content-between mx-sm-3">
-            <h1><?=$month->toString(); ?></h1>
-        <div>
+            <h2><?=$month->toString(); ?></h1>
+        <div class="next">
             <a href="/retrieve/<?=$id_ser;?>/index?month=<?=$month->previousMonth()->month; ?>&year=<?=$month->previousMonth()->year;?>" class="btn btn-primary">&lt;</a>
             <a href="/retrieve/<?=$id_ser;?>/index?month=<?=$month->nextMonth()->month; ?>&year=<?=$month->nextMonth()->year;?>"  class="btn btn-primary">&gt;</a>
         </div>
@@ -57,6 +57,6 @@
         <?php endfor; ?>
         </table>
         <a href="/retrieve/addEVent" class="calendarbtn">+</a>
-</div>
+    </div>
             
            
