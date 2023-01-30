@@ -37,7 +37,6 @@ class PlanningController {
     public function insertPlanning() {
         if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["ajouter"]))
         {
-
             
             $this->planning_titre = $this->empty($_POST["name"]);
             $this->planning_description = $this->empty($_POST["description"]);

@@ -60,7 +60,7 @@ div.LoginForm-Wrapper {
 }
 
 div.LoginForm-RightSide {
-    width: 70%;
+    width: 100%;
     height: 30rem;
     display: inline-flex;
     flex-direction: column;
@@ -78,39 +78,37 @@ div.LoginForm-IconWrap {
     align-items: center;
 }
 
+div.LoginForm-IconWrap h2 {
+    margin-block: 8px;
+}
+
 div.LoginForm-Content {
+    margin: 0 auto;
+    width: 100%;
     display: inline-flex;
     justify-content: center;
-    margin: auto;
 }
 
 .FormLogin-FormGroup input[type="email"],
 .FormLogin-FormGroup input[type="password"] {
-    width: 30rem;
+    width: 100%;
     font-size: 2rem;
     cursor: pointer;
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 1em;
     outline: none;
     border: 1px solid var(--tertioColor);
-    margin-block: 3rem;
-}
-
-div.FormLogin-Submit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0.25rem;
+    margin-block: 2rem;
 }
 
 button.Btn-Submit {
     font-family: var(--firstFontFamily);
     background-color: var(--secondColor);
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     align-self: center;
     padding: 1rem;
-    width: 50%;
+    width: 100%;
     cursor: pointer;
     border-radius: 1em;
     border: 1px solid var(--tertioColor);
@@ -121,7 +119,7 @@ button.Btn-Submit {
 
 button.Btn-Submit:hover {
     box-shadow: inset 7.5rem 0 0 0 var(--hoverColor);
-    color: white;
+    color: #000;
 }
 
 button.Btn-Submit:active {
@@ -208,7 +206,74 @@ li{
     gap: 1rem;
     cursor: pointer;   
 }
+
+
+/* Connexion et deconnexion */
+
+.dropbtn {
+    color: greenyellow;
+    margin-block: .5rem;
+    border: none;
+    cursor: pointer;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    font-size: 14px;
+    text-align: center;
+    display: none;
+    position: absolute;
+    background-color: var(--tertioColor);
+    min-width: 120px;
+    overflow: auto;
+    box-shadow: 0px 0px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown-content a {
+    color: var(--firstColor);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.9s;
+  }
+  
+  .dropdown a:hover {
+    background-color: var(--hoverColor);
+    color: #000;
+}
+  
+  .show {
+    display: block;
+}
+.dropdown>p{
+    display: flex;
+    flex-direction: column;
+    line-height: 4px;
+    margin: 0 auto;
+}
+.dropdown>p span{
+    color: var(--first_color);
+    font-size: 10px;
+    margin: 0 auto;
+}
+
 /* CSS FOR CALANDAR */
+.next {
+    text-align: right;
+    margin-right: 3rem;
+}
+
+.next a {
+    font-size: var(--firstTitle);
+    color: var(--tertioColor);
+    margin: .2rem;
+    transition: all 0.8s;
+}
+.next a:hover {
+    color: red;
+}
 
 .calendar{
     position: relative;
@@ -217,8 +282,8 @@ li{
 .calendartable{
     width: 100%;
     height: calc(100vh - 230px);
-
 }
+
 .calendartable td{
     padding: 1rem;
     border: 1px solid #ccc;
@@ -332,7 +397,7 @@ table.table {
 }
 
 .table .colSvg {
-    width: 5%;
+    width: 2%;
 }
 
 

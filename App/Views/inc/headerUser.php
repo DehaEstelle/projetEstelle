@@ -1,1 +1,3 @@
-<h1>Bienvenue iciiii</h1>
+<?php
+    echo "bienvue";
+?>

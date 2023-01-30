@@ -44,20 +44,16 @@
 							}
 							?>
 						</div>
-						<div class="FormLogin-Submit">
-							<button type="submit" class="Btn-Submit" name="valider">Login</button>
-						</div>
+						<button type="submit" class="Btn-Submit" name="valider">Login</button>
 					</form>
 				</div>
 				
 			</div>
 
 			<div class="LoginForm-LiftSide">
-
 				<div class="LoginForm-Cover">
 					<img src="/images/LoginFormImg.PNG" alt="Login Form Img">
 				</div>
-
 			</div>
 
 		</div>

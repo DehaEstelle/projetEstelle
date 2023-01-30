@@ -62,7 +62,10 @@ class RegisterController {
             $this->confirm_pwd = $this->empty($_POST["confirm_pwd"]);
             $this->user_role = $_POST["user_role"];
             $this->service_id = $_POST["service"];
-            $this->$user_id=$_POST["id2"];
+            $this->user_id = $_POST["user_id"];
+
+            // echo  $this->user_id ;
+            // exit();
 
             $this->model = new Register();
             $array = $this->model->VerifyUsers($this->user_email);
@@ -72,7 +75,7 @@ class RegisterController {
             $count = count($exist_adminService);
 
             
-            if(!$_POST['id2']) {
+            if(!$_POST['user_id']) {
             // var_dump($_POST["id2"]);
             // exit();
 

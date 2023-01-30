@@ -1,7 +1,7 @@
 
  <?php 
   session_start();
-  $_SESSION["role"] === 0 ? require("../App/Views/inc/header.php"):require("../App/Views/inc/headerUser.php");
+    $_SESSION["role"] === 0 ? require("../App/Views/inc/header.php"):require_once("../App/Views/inc/headerUser.php");
 
   require('../App/Models/Planning.php');
 //  echo $_SESSION["firstname"]; 

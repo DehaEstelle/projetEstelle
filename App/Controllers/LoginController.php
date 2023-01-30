@@ -56,6 +56,7 @@ class LoginController {
             if($lenght>0) {
                 if(password_verify($this-> user_password, $arr[0]["user_password"])) {
                     session_start();
+                    $_SESSION["user_id"] = $arr[0]["user_id"];
                     $_SESSION["firstname"] = $arr[0]["user_firstname"];
                     $_SESSION["lastname"] = $arr[0]["user_lastname"];
                     $_SESSION["email"] = $arr[0]["user_email"];
@@ -72,7 +73,7 @@ class LoginController {
                     } else if($arr[0]["user_role"] !== 0){
 
                         $service_id = $arr[0]["service_id"];
-                        header("Location:/retrieve/$service_id/index1");
+                        header("Location:/retrieve/$service_id/index");
                         exit();
                     }
 

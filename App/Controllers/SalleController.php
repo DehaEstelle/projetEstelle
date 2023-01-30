@@ -29,7 +29,7 @@ class SalleController {
             $salle_lib = $this->sanitize($data);
         }
         return $data;
-    }
+    } 
 
     public function insertSalle() {
         //On vérifie si la méthode utilisée pour le formulaire est "POST" et que le nom du bouton de soumission est "enregistrer"
