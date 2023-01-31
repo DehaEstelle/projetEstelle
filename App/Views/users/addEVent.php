@@ -12,28 +12,19 @@ require_once "../App/Views/inc/header.php";
         <?php endif ;   ?>
         <form action="/PlanningController/insertPlanning" method="post" class="form">
             
-            <div class="row">
-                <div class="form-group">
-                    <label for="name">Titre</label>
-                    <input type="text" class="form-control" required name="name" id="name"
-                        value="<?= isset($data['name'])? htmlentities($data['name']):'' ?>">
-                        <?php if (isset($errors['name'])):   ?>
-                        <small style="color:red;"><?= $errors['name'];   ?></small>
-                        <?php endif ;   ?>
-                </div>
-                <div class="form-group"> 
-                    <label for="date">Date</label>
-                    <input class="form-control" type="date" required name="date" id="date" value="<?= isset($data['date'])? htmlentities($data['date']):'' ?>">
-                        <?php if (isset($errors['date'])):   ?>
-                            <small style="color:red;"><?= $errors['date'];   ?></small>
-                        <?php endif ;   ?>
-                </div>
+            <div class="form-group">
+                <label for="name">Titre</label>
+                <input type="text" class="form-control" required name="name" id="name"
+                    value="<?= isset($data['name'])? htmlentities($data['name']):'' ?>">
+                    <?php if (isset($errors['name'])):   ?>
+                    <small style="color:red;"><?= $errors['name'];   ?></small>
+                    <?php endif ;   ?>
             </div>
 
             <div class="row">
                 <div class="form-group">
                     <label for="start">Demarrage</label>
-                    <input class="form-control" type="time" required name="start" id="start" placeholder="HH:MM"
+                    <input class="form-control" type="datetime-local" required name="start" id="start" placeholder="HH:MM"
                         value="<?= isset($data['start'])? htmlentities($data['start']):'' ?>">
                         <?php if (isset($errors['start'])):   ?>
                             <small style="color:red;"><?= $errors['start'];   ?></small>
@@ -42,7 +33,7 @@ require_once "../App/Views/inc/header.php";
 
                 <div class="form-group">
                     <label for="end">Fin</label>
-                    <input class="form-control" type="time" required name="end" id="end" placeholder="HH:MM"
+                    <input class="form-control" type="datetime-local" required name="end" id="end" placeholder="HH:MM"
                         value="<?= isset($data['end'])? htmlentities($data['end']):'' ?>">
                         <?php if (isset($errors['end'])):   ?>
                             <small style="color:red;"><?= $errors['end'];   ?></small>

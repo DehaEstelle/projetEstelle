@@ -492,3 +492,10 @@ form .addUsers {
     margin-left: 2rem;
 }
 
+/*
+* @media querie
+*/
+@media screen and (min-width: 768px) {
+    /*Header*/
+    
+}

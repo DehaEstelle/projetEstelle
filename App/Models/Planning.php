@@ -14,20 +14,18 @@ require_once("monthPlanning.php");
         public $end;
         public $salle_id;
         public $service_id;
-        public $date;
 
-        public function addPlanning($planning_titre, $planning_description, $start, $end, $salle_id, $service_id, $date) {
+        public function addPlanning($planning_titre, $planning_description, $start, $end, $salle_id, $service_id) {
             $this->planning_titre = $planning_titre;
             $this->planning_description = $planning_description;
             $this->start = $start;
             $this->end = $end;
             $this->salle_id = $salle_id;
             $this->service_id = $service_id;
-            $this->date = $date;
 
             $db = $this->connect();
 
-            $sql = "INSERT INTO `bootcamp_projet`.planning VALUES(NULL, :planning_titre,:planning_description,:start,:end,:salle_id,:service_id,:date)";
+            $sql = "INSERT INTO `bootcamp_projet`.planning VALUES(NULL, :planning_titre,:planning_description,:start,:end,:salle_id,:service_id)";
 
             $stmt = $db->prepare($sql);
             $stmt->execute([
@@ -38,7 +36,6 @@ require_once("monthPlanning.php");
                 ":service_id" => $this->service_id,
                 ":salle_id" => $this->salle_id, 
                 ":service_id" => $this->service_id,
-                ":date" => $this->date,
             ]);
         }
 
@@ -71,7 +68,7 @@ require_once("monthPlanning.php");
          */
         public function getEventsBetween(DateTime $start, DateTime $end):array {
             $db = $this->connect();
-            $sql=" SELECT * FROM planning WHERE planning.start BETWEEN '{$start->format('Y-m-d 00:00:00')}' 
+            $sql=" SELECT * FROM planning WHERE `planning`.start BETWEEN '{$start->format('Y-m-d 00:00:00')}' 
             AND '{$end->format('Y-m-d 23:59:59')}'";
             
            $stm=$db->prepare($sql);

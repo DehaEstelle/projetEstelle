@@ -33,7 +33,7 @@ require_once("../App/Controllers/Connexion.php");
         /**
         * $sql, pour les requêtes vers la base de données
         */
-        $sql = "INSERT INTO `bootcamp_projet`.users VALUES(NULL,:user_firstname,:user_lastname,:user_email,:user_password,:user_role,:service_id)";
+        $sql = "INSERT INTO `bootcamp_projet`.users VALUES(NULL, :user_firstname, :user_lastname, :user_email, :user_password, :user_role, :service_id)";
         
         $stmt = $db->prepare($sql);
         $stmt->execute([
@@ -42,7 +42,7 @@ require_once("../App/Controllers/Connexion.php");
             ":user_email" => $this->user_email,
             ":user_password" => password_hash($this->user_password, PASSWORD_DEFAULT),
             ":user_role" => $this->user_role,
-            ":service_id" => $this->service_id,
+            ":service_id" => $this->service_id
         ]);
 
     }
@@ -115,7 +115,7 @@ require_once("../App/Controllers/Connexion.php");
         $this->user_password = $user_password;
         $this->user_role = $user_role;
         $this->service_id = $service_id;
-
+        
         //connection à la base de données
         $db = $this->connect();
 
@@ -129,11 +129,10 @@ require_once("../App/Controllers/Connexion.php");
         //stockage des données sous forme de tableau
         $result = $stmt->fetchAll();
         return $result;
-    }
+    } 
 
     public function updateUsers($user_firstname,$user_lastname,$user_email,$user_role,$service_id, $user_id) {
         $this->user_id = $user_id;
-        echo "ID ".$user_id;
         $this->user_firstname = $user_firstname;
         $this->user_lastname = $user_lastname;
         $this->user_email = $user_email;
@@ -143,7 +142,7 @@ require_once("../App/Controllers/Connexion.php");
         $db = $this->connect();
 
         //requete pour faire la modification d'un salle de la bd
-        $req = "UPDATE `users` SET user_firstname =:user_firstname, user_lastname =:user_lastname,user_email =:user_email, user_role =:user_role, service_id =:service_id WHERE user_id=:id";
+        $req = "UPDATE `users` SET user_firstname =:user_firstname, user_lastname =:user_lastname, user_email =:user_email, user_role =:user_role, service_id =:service_id WHERE user_id=:id";
 
         //les requetes preparées
         $stmt = $db->prepare($req);
@@ -169,6 +168,21 @@ require_once("../App/Controllers/Connexion.php");
         //les requetes preparées
         $stmt = $db->prepare($sql);
         $stmt->execute([$service_id, $user_role]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public function selectUser($user_id){
+
+        //connection à la base de données
+        $db = $this->connect();
+
+        //requete pour faire la suppression d'un utilisateur de la bd
+        $sql = "SELECT *  FROM `bootcamp_projet`.users WHERE user_id = ? ";
+
+        //les requetes preparées
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$user_id]);
         $result = $stmt->fetchAll();
         return $result;
     }

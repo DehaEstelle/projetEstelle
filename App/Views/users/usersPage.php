@@ -43,20 +43,30 @@
 ?>
     <td class="<?= $month->withinMonth($date)  ? '' : 'calendarOverMonth'; ?>">
     <?php if($i===0): ?>
-    <div class="calencarweekdays"><?= $day; ?></div>
+            <div class="calencarweekdays"><?= $day; ?></div>
         <?php endif; ?>
         <div class="calencardays"><?=$date->format('d'); ?></div>
+
         <?php foreach($eventsForDays as $tt): ?>
-        <div class="calendarevents">
-        <?=(new DateTime( $tt['start']??''))->format('H:i'); ?> - <a href="/retrieve/<?=$id_ser;?>/showPlanning?id=<?=$tt['id'];?>"><?php echo $tt['name']??'' ; ?></a>
-    </div>
+            <div class="calendarevents">
+            <?=(new DateTime( $tt['start']))->format('H:i')??''; ?> - <a href="/retrieve/<?=$service_id;?>/detailPlanning?id=<?=$tt['planning_id'];?>"> <?= $tt['planning_titre']?? ''; ?></a>
+        </div>
         <?php endforeach;  ?>
         </td>
         <?php endforeach; ?>
         </tr>
         <?php endfor; ?>
         </table>
-        <a href="/retrieve/addEVent" class="calendarbtn">+</a>
+        <span>
+            <?php 
+                if( $_SESSION["role"] === 0) {
+                    echo ' <a href="/retrieve/addEVent" class="calendarbtn">+</a>';
+                }else{
+                    echo '';
+                }
+            ?>
+        </span>
+        
     </div>
             
            

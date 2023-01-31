@@ -11,7 +11,6 @@ class PlanningController {
     public $end;
     public $salle_id;
     public $service_id;
-    public $date;
 
     public function sanitize($verif)
     {
@@ -45,13 +44,12 @@ class PlanningController {
             
             $this->service_id = $_POST["service"];
             $this->salle_id=$_POST["salle"];
-            $this->date = $_POST["date"];
             
             // var_dump($_POST);
             // exit();
 
             $this->model = new planning();
-            $array = $this->model->addPlanning($this->planning_titre, $this->planning_description, $this->start, $this->end, $this->salle_id, $this->service_id, $this->date);
+            $array = $this->model->addPlanning($this->planning_titre, $this->planning_description, $this->start, $this->end, $this->salle_id, $this->service_id);
             // die($_POST['id2']);
             // exit();
         }

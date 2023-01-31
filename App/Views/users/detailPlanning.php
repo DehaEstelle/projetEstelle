@@ -13,18 +13,20 @@
   
     //print_r( $event);
 ?>
-<h1><?= htmlentities($event['name']?? '') ; ?></h1>
+<h1><?= htmlentities($event['planning_titre']?? '') ; ?></h1>
 
 <ul>
-    <li>Date: <?= (new DateTime($event['start']?? ' ' ))->format('d/m/Y') ?? ''; ?></li>
+    <li>Date de demarrage: <?= (new DateTime($event['start']?? ' ' ))->format('d/m/Y') ?? ''; ?></li>
     
-    <li>HEURE DE DEMARRAGE: <?= (new DateTime($event['start']?? ' '))->format('H:i')?? ''; ?></li>
+    <li>Heure de demarrage: <?= (new DateTime($event['start']?? ' '))->format('H:i')?? ''; ?></li>
+
+    <li>Date de fin: <?= (new DateTime($event['end']?? ' ' ))->format('d/m/Y') ?? ''; ?></li>
     
-    <li>HEURE DE FIN: <?= (new DateTime($event['end']?? ''))->format('H:i')?? ''; ?></li>
+    <li>Heure de fin: <?= (new DateTime($event['end']?? ''))->format('H:i')?? ''; ?></li>
     
     <li>DETAIL:
          <br>
-         <?= htmlentities($event['description']??''); ?>
+         <?= htmlentities($event['planning_description']??''); ?>
     </li>
 </ul>
 

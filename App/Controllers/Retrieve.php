@@ -49,4 +49,8 @@ class Retrieve {
         require("../App/Views/users/detailPlanning.php");
     }
 
+    public function modify() {
+        require("../App/Views/admin/modify_users.php");
+    }
+
 } 
